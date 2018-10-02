@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { ContactCreateComponent } from './contact-create/contact-create.component';
 import { ContactUpdateComponent } from './contact-update/contact-update.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
@@ -15,12 +16,12 @@ import { routingModule } from './routing.module';
     ContactCreateComponent,
     ContactUpdateComponent,
     ContactDetailComponent,
-    ContactListComponent,
-
+    ContactListComponent
   ],
   imports: [
     BrowserModule,
-    routingModule
+    routingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
