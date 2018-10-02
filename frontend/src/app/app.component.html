@@ -1,14 +1,10 @@
-<div style="text-align:center">
+<mat-toolbar color="primary" class="fixed-header">
   <h1>
     Angular Express Demo
   </h1>
-</div>
-<ul>
-  <li>
-    <h2><a routerLink='contact-list'>Contacts</a></h2>
-  </li>
-  <li>
-    <h2><a routerLink='contact-create'>Create</a></h2>
-  </li>
-</ul>
+
+  <a mat-button routerLink="contact-list">Contacts</a>
+  <a mat-button routerLink="contact-create">Create Contact</a>
+
+</mat-toolbar>
 <router-outlet></router-outlet>

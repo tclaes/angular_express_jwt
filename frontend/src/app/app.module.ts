@@ -8,6 +8,9 @@ import { ContactUpdateComponent } from './contact-update/contact-update.componen
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { routingModule } from './routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +24,14 @@ import { routingModule } from './routing.module';
   imports: [
     BrowserModule,
     routingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
