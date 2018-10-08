@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Contact } from './contact';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
+import { tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,16 +16,17 @@ export class ApiService {
   constructor(private httpClient: HttpClient) { }
 
   parse_link_header(header) {
-    if (header.length === 0) {
+    if (header.length == 0) {
       return ;
     }
 
-    const parts = header.split(',');
+    let parts = header.split(',');
     var links = {};
     parts.forEach(p => {
-      const section = p.split(';');
-      const url = section[0].replace(/<(.*)>/, '$1').trim();
-      const name = section[1].replace(/rel="'.*"/, '$1').trim();
+      let section = p.split(';');
+      var url = section[0].replace(/<(.*)>/, '$1').trim();
+      var name = section[1].replace(/rel="'.*"/, '$1').trim();
+      links[name] = url;
     });
 
     return links;
@@ -56,7 +57,7 @@ export class ApiService {
         })
       );
     }
-    return this.httpClient.get<Contact[]>(`${this.apiUrl}/contacts?_pages=1`, {observe: 'response'}).pipe(
+    return this.httpClient.get<Contact[]>(`${this.apiUrl}/contacts?_page=1`, {observe: 'response'}).pipe(
       tap(res => {
         const Link = this.parse_link_header(res.headers.get('Link'));
         this.first = Link['first'];
