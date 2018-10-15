@@ -29,21 +29,21 @@ export class ContactListComponent implements OnInit {
     });
   }
 
-  nextPage(){
-    this.apiService.getContacts(this.apiService.next).subscribe((res)=>{
+  nextPage() {
+    this.apiService.getContacts(this.apiService.next).subscribe((res) => {
       console.log(res.body);
       this.dataSource = res.body;
     });
   }
 
-  firstPage(){
-    this.apiService.getContacts(this.apiService.first).subscribe((res)=>{
+  firstPage() {
+    this.apiService.getContacts(this.apiService.first).subscribe((res) => {
       console.log(res.body);
       this.dataSource = res.body;
     });
   }
 
-  lastPage(){
+  lastPage() {
     this.apiService.getContacts(this.apiService.last).subscribe((res)=>{
       console.log(res.body);
       this.dataSource = res.body;
@@ -57,8 +57,6 @@ export class ContactListComponent implements OnInit {
       data: contact
     });
 
-    dialogRef.afterClosed().subscribe(res => {
-      console.log('The dialog was closed');
-    })
+
   }
 }

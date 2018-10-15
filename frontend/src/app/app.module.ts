@@ -13,13 +13,15 @@ import { MatToolbarModule, MatButtonModule, MatFormFieldModule,
           MatInputModule, MatTableModule, MatDialogModule, MatCardModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from '@auth0/angular-jwt';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     ContactCreateComponent,
     ContactUpdateComponent,
     ContactDetailComponent,
-    ContactListComponent
+    ContactListComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
